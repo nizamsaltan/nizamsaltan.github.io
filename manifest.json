@@ -1,11 +1,11 @@
 {
-    "name": "portfolio_app",
-    "short_name": "portfolio_app",
+    "name": "Nizam Saltan",
+    "short_name": "Nizam Saltan",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Nizam Saltan Flutter portfolio app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
