@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel="stylesheet" href="css/home.css">
+    <title>Mehmet Nizam Saltan</title>
+</head>
+<body onmousedown="mouseDown()" onmouseup="mouseUp()">
+    <div class="cursor"></div>
+    <header>
+        <a href="https://nizamsaltan.com/"><h2 onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)">Mehmet Nizam Saltan</h2></a>
+        <ul onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)" class="header">
+            <li><a href="https://sketchfab.com/niizam" >3D Work</a></li>
+            <li><a href="https://github.com/nizamsaltan">Projects</a></li>
+            <li><a href="https://medium.com/@NizamSaltan" target="blank">Blog</a></li>
+        </ul>
+    </header>
+    <h1 onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)" >Hello</h1>
+    <p class="about-text" onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)">Based in Turkey. Passionate about<br>programming and motorcycle sports.<br>Fan of minimalist art.</p>
+    <ul class="social" onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)">
+        <li><a href="https://www.youtube.com/channel/UCyJN487C64xfTweWEl1-zZA" target="blank"><i class="fi fi-brands-youtube"></i></a></li>
+        <li><a href="https://www.instagram.com/nizam.3d/" target="blank"><i class="fi fi-brands-instagram"></i></a></li>
+        <li><a href="https://twitter.com/nizam3d" target="blank"><i class="fi fi-brands-twitter"></i></a></li>
+    </ul>
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        let minusAmount = -37.5;
+        let xAxis = 0;
+        let yAxis = 0;
+        let isMouseOver = false;
+        
+        const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+        document.addEventListener('mousemove', e => {
+            if (!isMouseOver) {
+                yAxis = e.pageY;
+                xAxis = e.pageX;
+            }
+        })
+
+        function updateMousePos() {
+            var x = clamp((xAxis - minusAmount), 0, document.body.clientWidth);
+            var y = clamp((yAxis - minusAmount), 0, document.body.clientHeight);
+
+            cursor.setAttribute("style", "top: " + (y + minusAmount * 2) +
+                "px; left: " + (x + minusAmount * 2) + "px;");
+        }
+
+        function mouseDown() {
+            minusAmount = -100;
+            cursor.classList.add("cursor-mouse-down");
+        }
+
+        function mouseUp() {
+            minusAmount = -37.5;
+            cursor.classList.remove("cursor-mouse-down");
+        }
+        
+        function onMouseOver(x) {
+            isMouseOver = true;
+            
+            xAxis = x.offsetLeft;
+            yAxis = x.offsetTop;
+
+
+            cursor.classList.add("cursor-mouse-over");
+        }
+
+        function onMouseOut(x) {
+            isMouseOver = false;
+            cursor.classList.remove("cursor-mouse-over");
+        }
+
+        setInterval(updateMousePos, 10);
+    </script>
+</body>
+</html>
