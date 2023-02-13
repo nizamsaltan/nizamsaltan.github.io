@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asd</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#foreword">0. Foreword</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#basic-command-line-knowledge">1. Basic Command Line Knowledge</a></li>
+<li><a href="#installing-arch-linux">2. Installing Arch Linux</a>
+<ul>
+<li><a href="#pre-installation">Pre Installation</a></li>
+<li><a href="#first-boot">First Boot</a></li>
+<li><a href="#todo-keep-proccess">[TODO] Keep proccess</a></li>
+</ul>
+</li>
+<li><a href="#understanding-window-systems-in-unix-like-systems">3. Understanding Window Systems in Unix-like Systems</a>
+<ul>
+<li><a href="#xorg">Xorg</a></li>
+<li><a href="#window-managers">Window Managers</a></li>
+</ul>
+</li>
+<li><a href="#base-system-requirements">4. Base System Requirements</a>
+<ul>
+<li><a href="#window-manager">Window Manager</a></li>
+<li><a href="#terminal-emulators">Terminal Emulators</a></li>
+<li><a href="#application-launcher">Application Launcher</a></li>
+<li><a href="#file-manager-functionality">File manager functionality</a></li>
+<li><a href="#file-viewer">File Viewer</a></li>
+<li><a href="#command-line-text-editors">Command Line Text Editors</a></li>
+<li><a href="#downloading-base-system-requirements">Downloading Base System Requirements</a>
+<ul>
+<li></li>
+<li><a href="#i3-configuration">i3 Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="foreword">0. Foreword</h1>
+<p>Welcome to the online book for learning Arch Linux for Desktop Users! Whether you are trying to learn Arch Linux for academic purposes, to pursue a career or simply looking for a hobby, this book will teach you the basics and the intermediate knowledge. Arch Linux for Desktop Users aims to show how to turn the base Linux operating system into a fully functional desktop in an easy-to-understand fashion.</p>
+<h3 id="what-you-will-learn">What you will learn?</h3>
+<p>Using base an advanced Linux distro can be difficult, especially for beginners. This book will aim to teach all the details and background processes of daily Linux computers. We will go from installing Arch Linux to our system, learning window managers, audio servers, file managers, etc. If you have an interest in learning or customizing your computer, particularly for you then this book is for you!</p>
+<blockquote>
+<p>Quick Note: This book is still in progress and there may has some wrong writing fails or unfinished parts. However, the accuracy of the information taught will be checked from several different sources and the sources will be given with links.</p>
+</blockquote>
+<h1 id="basic-command-line-knowledge">1. Basic Command Line Knowledge</h1>
+<p>./<em>file_name</em> -&gt; file in the current directory<br>
+<em>folder_name</em>/<em>another_folder</em> -&gt; <em>folder</em> under current directory<br>
+/<em>folder_name</em>/<em>another_folder</em> -&gt; folder under root directory</p>
+<p>ls -&gt; list files in the current directory<br>
+-&gt; <code>ls -a</code> show hidden files<br>
+-&gt; <code>ls /usr/share</code> list inside /usr/share folder</p>
+<p>cd -&gt; change directory<br>
+-&gt; <code>cd share/bin</code> change directory to share/bin under the current directory<br>
+-&gt; <code>cd /usr/share/bin</code> change directory to /usr/share/bin under the root directory</p>
+<p>cat -&gt; print file<br>
+<code>cat picom.conf</code> print picom.conf file under the current directory</p>
+<p>tar -&gt; .tar based archive manager<br>
+<code>tar -xf _file_name.tar.xz_</code> extract <em>file_name.tar.xz</em><br>
+<code>tar -cf _name_of_archive.tar.xz_ /path/to/folder</code> create archive named <em>name_of_archive.tar.xz</em> that contains /path/to/folder</p>
+<p>mkdir -&gt; make directory<br>
+<code>mkdir /usr/share/folder_name</code> make a folder named folder_name under /usr/share directory</p>
+<p>rmdir -&gt; remove empty directory<br>
+<code>rmdir empty_folder</code> remove empty_folder under current directory</p>
+<p>rm -&gt; remove file or folder<br>
+<code>rm -rf /usr/share/unececary_folder</code> force to remove unececary_folder (can be file too)</p>
+<h1 id="installing-arch-linux">2. Installing Arch Linux</h1>
+<p>So many people would disagree with me about recommending Arch Linux for beginners. But learning the basics of Linux and with a proper guide, it’s relatively simple to use. Everyone’s reason for using Arch Linux is different, just like having various reasons for using Linux. I am using Arch Linux because I want to get as much freedom from Linux, and it also has a great package manager called ‘Pacman’.</p>
+<h2 id="pre-installation">Pre Installation</h2>
+<p>You can download the .iso file from *<a href="https://archlinux.org/download/*">https://archlinux.org/download/*</a> and then flash the file to a USB drive using a flasher tool like <em>balena etcher.</em> I recommend first installing it into a virtual machine to understand and prevent any failures in the primary system. In this guide, I will use Virtual Box. But this book does not cover using virtual machines or flashing USBs. If you don’t know how to do them check the websites below.</p>
+<ul>
+<li><a href="https://www.virtualbox.org/manual/ch01.html">https://www.virtualbox.org/manual/ch01.html</a></li>
+<li><a href="https://www.balena.io/etcher">https://www.balena.io/etcher</a></li>
+</ul>
+<h2 id="first-boot">First Boot</h2>
+<p>You can check the official guide via this link: *<a href="https://wiki.archlinux.org/title/Installation_guide*">https://wiki.archlinux.org/title/Installation_guide*</a></p>
+<p>After we first boot into Arch Linux, there is some ugly terminal to help us install AL to our system. But first thing first, we need to tell the system which keyboard layout we have.</p>
+<h3 id="keyboard-layout">Keyboard Layout</h3>
+<p>If you don’t know your current layout code you can use <code>localectl list-keymaps</code> command to list all available layouts, then to select yours use <code>loadkeys *keymap*</code> . For example <code>loadkeys trq</code> for Turkish Q layout.</p>
+<h3 id="internet-connection">Internet Connection</h3>
+<p>If you have an ethernet cable connected to your computer (<em>some virtual machines can use the host network. Check your network status with <code>ping archlinux.org</code>.</em>) then you are good to go. If not follow these steps to set up your internet connection over wifi.</p>
+<p>To connect internet, we will use arch’s built-in tool <strong>iwctl</strong> to get started type <code>iwctl</code> command. You will realize the color of the terminal is now changed. Now you can use <code>help</code> command to list all functions. To list current devices, type <code>device list</code>. If the device or its corresponding adapter is turned off, turn it on:</p>
+<pre><code>$ device _device_ set-property Powered on
+$ adapter _adapter_ set-property Powered on
+</code></pre>
+<p>Then, to initiate a scan for networks (note that this command will not output anything):</p>
+<pre><code>[iwd]# station _device_ scan
+</code></pre>
+<p>You can then list all available networks:</p>
+<pre><code>[iwd]# station _device_ get-networks
+</code></pre>
+<p>Finally, to connect to a network:</p>
+<pre><code>[iwd]# station _device_ connect _SSID_
+</code></pre>
+<p>If a passphrase is required, you will be prompted to enter it. After this, you can exit the tool by typing <code>exit</code>.<br>
+Alternatively, you can supply it as a command line argument:</p>
+<pre><code>$ iwctl --passphrase _passphrase_ station _device_ connect _SSID_
+</code></pre>
+<p>Don’t forget to check your connection with <code>ping archlinux.org</code> command :-)</p>
+<h3 id="partitioning">Partitioning</h3>
+<p>Partitioning itself is a huge part to consider because everyone’s needs and situations are different. If you are installing this alongside other OS or if you have important files on your disk then I would highly recommend you to backup your data before partitioning.<br>
+First, you should check the available disks in your system. Use <code>fdisk -l</code> command to list all disks and partitions on your system. To partition, I would recommend <em>cfdisk</em> rather than base <em>fdisk</em>. Go in <em>cfdisk</em> UI by typing <code>cfdisk *your_target_disk*</code>. Here is an example layout;</p>
+
+<table>
+<thead>
+<tr>
+<th>Mount point</th>
+<th>Partition</th>
+<th><a href="%5Bhttps://en.wikipedia.org/wiki/Partition_type%5D(https://en.wikipedia.org/wiki/Partition_type)" title="wikipedia:Partition type">Partition type</a></th>
+<th>Suggested size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/boot</td>
+<td>/dev/<em>efi_system_partition</em></td>
+<td><a href="%5Bhttps://wiki.archlinux.org/title/EFI_system_partition%5D(https://wiki.archlinux.org/title/EFI_system_partition)" title="EFI system partition">EFI system partition</a> <em>(fat32)</em></td>
+<td>Min 500 MiB. If multiple kernels will be installed, then no less than 1 GiB.</td>
+</tr>
+<tr>
+<td>/swap</td>
+<td>/dev/<em>efi_system_partition</em></td>
+<td>Linux Swap</td>
+<td>Depends on current system disk. 2 GiB recommended.</td>
+</tr>
+<tr>
+<td>/</td>
+<td>/dev/<em>root_partition</em></td>
+<td>Linux File System <em>(ext4)</em></td>
+<td>40 GiB recommended. Min of 10 GiB</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>/dev/<em>home_partition</em></td>
+<td>Linux File System <em>(ext4)</em></td>
+<td>Remaining space</td>
+</tr>
+</tbody>
+</table><blockquote>
+<p>Boot(/<em>boot</em>) and root(/) patitions required to install system using <em>systemd</em> boot method</p>
+</blockquote>
+<p>We can mount partitions after successfully partitioning and formatting the target disk.</p>
+<h3 id="mounting">Mounting</h3>
+<p>You can mount partitions using <code>mount --mkdir /dev/_root_partition_ /mnt</code> command. For example;</p>
+<ul>
+<li><code>mount --mkdir /dev/ /mnt/</code> -&gt; for root partition</li>
+<li><code>mount --mkdir /dev/home /mnt/home</code> -&gt; for home partition</li>
+</ul>
+<p>If you created a <a href="%5Bhttps://wiki.archlinux.org/title/Swap%5D(https://wiki.archlinux.org/title/Swap)" title="Swap">swap</a> volume, enable it with: <code>swapon /dev/_swap_partition_</code></p>
+<h3 id="installation">Installation</h3>
+<h4 id="select-the-mirrors">Select the mirrors</h4>
+<p>Packages to be installed must be downloaded from <a href="%5Bhttps://wiki.archlinux.org/title/Mirrors%5D(https://wiki.archlinux.org/title/Mirrors)" title="Mirrors">mirror servers</a>, which are defined in <code>/etc/pacman.d/mirrorlist</code>. On the live system, after connecting to the internet, <a href="%5Bhttps://wiki.archlinux.org/title/Reflector%5D(https://wiki.archlinux.org/title/Reflector)" title="Reflector">reflector</a> updates the mirror list by choosing the 20 most recently synchronized HTTPS mirrors and sorting them by download rate.</p>
+<p>The higher a mirror is placed in the list, the more priority it is given when downloading a package. You may want to inspect the file to see if it is satisfactory. If it is not, <a href="%5Bhttps://wiki.archlinux.org/title/Textedit%5D(https://wiki.archlinux.org/title/Textedit)" title="Textedit">edit</a> the file accordingly, and move the geographically closest mirrors to the top of the list, although other criteria should be taken into account.</p>
+<p>This file will later be copied to the new system by <em>pacstrap</em>, so it is worth getting right.</p>
+<p>Şu site ile hazır pacman list ayarlayabilirsiniz<br>
+şu kod ile base linuxu indirebilirsiniz<br>
+###Fstab</p>
+<p>Generate an <a href="https://wiki.archlinux.org/title/Fstab" title="Fstab">fstab</a> file (use <code>-U</code> or <code>-L</code> to define by <a href="https://wiki.archlinux.org/title/UUID" title="UUID">UUID</a> or labels, respectively):</p>
+<p>#genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</p>
+<p>Check the resulting <code>/mnt/etc/fstab</code> file, and <a href="https://wiki.archlinux.org/title/Textedit" title="Textedit">edit</a> it in case of errors.</p>
+<h2 id="todo-keep-proccess">[TODO] Keep proccess</h2>
+<h1 id="understanding-window-systems-in-unix-like-systems">3. Understanding Window Systems in Unix-like Systems</h1>
+<p>After installing the base Linux system, we need some base packages to use our computer traditionally. For example, we need a web browser to surf on the web or an app launcher to launch apps in our system, like a web browser. There is so much to talk about but to understand how computers interact with hardware, let’s take a look at  <strong>Xorg</strong></p>
+<h2 id="xorg">Xorg</h2>
+<p>The <a href="http://X.Org">X.Org</a> project provides an open-source implementation of the X Window System. The development work is being done in conjunction with the <a href="http://freedesktop.org">freedesktop.org</a> community. The <a href="https://x.org/wiki/XorgFoundation/">X.Org Foundation</a> is the educational non-profit corporation whose <a href="https://x.org/wiki/BoardOfDirectors/">Board</a> serves this effort, and whose <a href="https://x.org/wiki/Membership/">Members</a> lead this work.</p>
+<p>But what is X Window System? you might ask. Here is the answer.</p>
+<p>The <strong>X Window System</strong> (<strong>X11</strong>, or simply <strong>X</strong>) is a <a href="https://en.wikipedia.org/wiki/Windowing_system" title="Windowing system">windowing system</a> for <a href="https://en.wikipedia.org/wiki/Bitmap" title="Bitmap">bitmap</a> displays, common on <a href="https://en.wikipedia.org/wiki/Unix-like" title="Unix-like">Unix-like</a> operating systems.</p>
+<p>X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface – this is handled by individual programs. As such, the visual styling of X-based environments varies greatly; different programs may present radically different interfaces.</p>
+<p>In basic terms, X Window System gets input from hardware, gives information to current running apps, and then draws output on the screen. We need to run X before running our GUI apps.</p>
+<p>There is also another option for X11 called Wayland. Wayland is a replacement for the X11 window system protocol and architecture with the aim to be easier to develop, extend, and maintain. But because of the newness of Wayland, we don’t use it in this guide, rather than the more mature X11.</p>
+<p>We can start X by simply typing <code>startx</code> command followed by the path to the window manager. For example <code>startx /usr/bin/i3</code>. So without making things more complicated for X, let’s look at <strong>Window Managers</strong></p>
+<h2 id="window-managers">Window Managers</h2>
+<p>In its core, window managers handle the placement and appearance of windows on the screen. It can be part of a Desktop Environments or be used as standalone. There is have 3 different types of window managers;</p>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/Window_manager#Stacking_window_managers">Stacking/Floating</a> window managers is the traditional WMs used in commercial operating systems like Windows and macOS. In these WMs windows can be stacked on top of each other. KWin, Sawfish, or Openbox is popular options for stacking WMs.</li>
+<li><a href="https://wiki.archlinux.org/title/Window_manager#Tiling_window_managers">Tiling</a> window managers “tile” the windows so that none are overlapping. They usually make very extensive use of key bindings and have less (or no) reliance on the mouse. Tiling window managers may be manual, offer predefined layouts, or both. i3, Qtile or Xmonad is popular options for tiling WMs.</li>
+<li><a href="https://wiki.archlinux.org/title/Window_manager#Dynamic_window_managers">Dynamic</a> window managers can switch between floating and tiling window layouts.</li>
+</ul>
+<h1 id="base-system-requirements">4. Base System Requirements</h1>
+<p>To interact with our computers, we need some basic tools. These include <em>Window Manager</em>, <em>App launcher</em>, etc. But in this section, don’t install tools yet, this is just an introduction to them. You can select and install them in the next part.</p>
+<blockquote>
+<p>Here is litte cheatsheet for <em>Base System Requirements</em>.</p>
+<ul>
+<li>Window manager</li>
+<li>Terminal emulator</li>
+<li>App launcher</li>
+<li>Web browser</li>
+<li>File viewer</li>
+<li>Command line text editor</li>
+</ul>
+</blockquote>
+<p>Yes, you can live without them but I call them <em>Base System Requirements</em> because these tools going to make everyone’s life easier. So let’s start by installing window manager.</p>
+<h2 id="window-manager">Window Manager</h2>
+<p>This depends on personal preferences. In the previous chapter, we discussed different types of window managers and some examples of them.</p>
+<h3 id="i3-gaps">i3 Gaps</h3>
+<p>To make clear, the most (or only) difference between <em>i3</em> and <em>i3 gaps</em> is as named i3 gaps have gap/space between windows. This help <em><a href="reddit.com/r/unixporn/">r/unixporn</a></em> community to rice better and for us better visual.</p>
+<blockquote>
+<p>i3 is a <a href="https://en.wikipedia.org/wiki/Tiling_window_manager">tiling window manager</a>, completely written from scratch. The target platforms are GNU/Linux and BSD operating systems, our code is Free and Open Source Software (FOSS) under the BSD license. i3 is primarily targeted at advanced users and developers.</p>
+</blockquote>
+<p>but before running X to run <em>gui apps</em> let’s install some more tools.</p>
+<h2 id="terminal-emulators">Terminal Emulators</h2>
+<p>First, we need a terminal emulator to run the commands in gui. We have so many options for choosing a terminal emulator. <a href="https://en.wikipedia.org/wiki/List_of_terminal_emulators">Here</a> is the list of all terminal emulators if you are a nerd, if not here is some examples and screenshots of them.</p>
+<h3 id="konsole">Konsole</h3>
+<p>Konsole is KDE’s official terminal emulator. Features</p>
+<ul>
+<li>Multiple tabs support</li>
+<li>Multiple profiles support</li>
+<li>Silence and Activity monitoring</li>
+<li>Bookmark support</li>
+<li>Searching</li>
+<li>Saving output</li>
+<li>Multiple splits in any tab</li>
+</ul>
+<p><a href="https://konsole.kde.org/">https://konsole.kde.org/</a><br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Konsole_21.12.0_screenshot.png" alt="Screenshot of Konsole in KDE Plasma "></p>
+<h3 id="alacritty">Alacritty</h3>
+<p>Alacritty is a modern terminal emulator that comes with sensible defaults, but allows for extensive configuration. By integrating with other applications, rather than reimplementing their functionality, it manages to provide a flexible set of features with high performance. The supported platforms currently consist of BSD, Linux, macOS and Windows.</p>
+<p><a href="https://alacritty.org/">https://alacritty.org/</a><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Alacritty-screenshot-with-vim.png/1280px-Alacritty-screenshot-with-vim.png" alt="Alacritty"></p>
+<h3 id="gnome-terminal">Gnome Terminal</h3>
+<p><strong>GNOME Terminal</strong> is a terminal emulator for the GNOME written by <a href="https://en.wikipedia.org/wiki/Havoc_Pennington" title="Havoc Pennington">Havoc Pennington</a> and others. Terminal emulators allow users to access a UNIX shell while remaining on their graphical desktop.</p>
+<p><a href="https://wiki.gnome.org/Apps/Terminal">https://wiki.gnome.org/Apps/Terminal</a><br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/GNOME_Terminal_3.43_Adwaita-dark.png/1280px-GNOME_Terminal_3.43_Adwaita-dark.png" alt="GNOME Terminal 3.43 with the theme set to Adwaita-dark"></p>
+<h3 id="xfce4-terminal">Xfce4 Terminal</h3>
+<p>Xfce Terminal is a lightweight and easy to use terminal emulator application with many advanced features including drop down, tabs, unlimited scrolling, full colors, fonts, transparent backgrounds, and more.</p>
+<p><a href="https://docs.xfce.org/apps/terminal/start">https://docs.xfce.org/apps/terminal/start</a><br>
+<img src="https://camo.githubusercontent.com/48f61a4be8fa223bbf6689cd82bce693a2a4bfbc/68747470733a2f2f7261772e6769746875622e636f6d2f696c6c6172696f6e4b2f6261736531362d78666365342d7465726d696e616c2f6d61737465722f6261736531362d78666365342d7465726d696e616c2e706e67" alt="enter image description here"></p>
+<h2 id="application-launcher">Application Launcher</h2>
+<p>Most popular application launchers are <em><a href="https://tools.suckless.org/dmenu/">DMenu</a></em> and <em><a href="https://github.com/davatorium/rofi">Rofi</a></em>. dmenu is a dynamic menu for X, originally designed for <a href="https://dwm.suckless.org/">dwm</a>. It manages large numbers of user-defined menu items efficiently. On the other hand, Rofi, like dmenu, will provide the user with a textual list of options where one or more can be selected. This can either be running an application, selecting a window, or options provided by an external script.</p>
+<h2 id="file-manager-functionality">File manager functionality</h2>
+<p>From <a href="http://wiki.archlinux.org">wiki.archlinux.org</a></p>
+<blockquote>
+<p><strong>Note:</strong> When installed, the software packages listed below will automatically be sourced by all installed - and capable - file managers, and within all desktop environments and/or window managers.</p>
+</blockquote>
+<p>A file manager alone will not provide the features and functionality that users of full desktop environments such as <a href="https://wiki.archlinux.org/title/Xfce" title="Xfce">Xfce</a> or <a href="https://wiki.archlinux.org/title/KDE" title="KDE">KDE</a> will be accustomed to. This is because additional software packages will be required to enable a given file manager to:</p>
+<ul>
+<li>Display and access other partitions</li>
+<li>Display, mount, and access removable media (e.g. USB sticks, optical discs, and digital cameras)</li>
+<li>Enable networking / shared networks with other installed operating systems</li>
+<li>Enable thumbnailing</li>
+<li>Archive and extract compressed files</li>
+<li>Automatically mount removable media</li>
+</ul>
+<p>When a file manager has been installed as part of a full desktop environment, most of these packages will usually have been installed automatically. Consequently, where a file manager has been installed for a standalone window manager then - as is the case with the window manager itself - only a basic foundation will be provided. The user must then determine the nature and extent of the features and functionality to be added.</p>
+<h2 id="file-viewer">File Viewer</h2>
+<p>After adding file manager functionality, we can choose the right tool to view it. File viewers can be both command line based or gui based, so it will be an advantage to have both of them. Some of the options for command line file viewers are <a href="https://github.com/gokcehan/lf"><strong>lf</strong></a> or <a href="https://ranger.github.io/"><strong>ranger</strong></a>. For gui, we have much of options. Examples can be <a href="https://en.wikipedia.org/wiki/Dolphin_%28file_manager%29"><strong>dolphin</strong></a> for kde, <a href="https://en.wikipedia.org/wiki/GNOME_Files"><strong>natuilus</strong></a> (or gnome files) for gnome and <a href="https://en.wikipedia.org/wiki/Thunar"><strong>thunar</strong></a> for xfce.</p>
+<h2 id="command-line-text-editors">Command Line Text Editors</h2>
+<p>In some distro’s there is more than one command line text editor. And most popular ones can be <em>vim</em> and <em>nano</em> Nano is relatively more beginner friendly because of listing some of the important shortcuts at the bottom. On the other hand vim targets more advanced users. We can have multiple text editors in our system. Later in this book, we will configure these editors to get a better experience. For example, syntax highlighting, line numbers, etc.</p>
+<h2 id="downloading-base-system-requirements">Downloading Base System Requirements</h2>
+<p>Finally, we understand a big part of how DE works and we can start installing packages now!</p>
+<h4 id="choosing-window-manager">Choosing Window Manager</h4>
+<p>My pick for Window Manager will be i3-gaps because of easy configuration, and customization and also being lightweight.<br>
+Download i3-gaps by typing:</p>
+<pre><code>$ pacman -S i3-gaps
+</code></pre>
+<h4 id="choosing-terminal-emulator">Choosing Terminal Emulator</h4>
+<p>I love Xfce’s terminal emulator because it’s simple yet super customizable. Download xfce4-terminal by</p>
+<pre><code>$ pacman -S xfce4-terminal
+</code></pre>
+<h4 id="downloading-web-browser">Downloading Web Browser</h4>
+<p>After downloading the terminal emulator, we can start installing a web browser. Some popular options would be chrome and firefox but because of open source and already included in arch’s package manager, I will use firefox for this. Download Firefox by typing;</p>
+<pre><code>$ pacman -S firefox
+</code></pre>
+<h4 id="downloading-application-launcher">Downloading Application Launcher</h4>
+<p>We need an application launcher to launch apps. Rofi is popular because of being super configurable and can be used in other panels to <em>(we will talk about them later on)</em> Download rofi by typing</p>
+<pre><code>$ pacman -S rofi
+</code></pre>
+<h4 id="downloading-command-line-text-editors">Downloading Command Line Text Editors</h4>
+<p>We can download nano and vim by typing;</p>
+<pre><code>$ pacman -S nano vim
+</code></pre>
+<h4 id="downloading-file-viewer">Downloading File Viewer</h4>
+<p>My pick for the file manager is again will be Xfce’s file manager <strong>thunar</strong>. Download thunar by typing;</p>
+<pre><code>$ pacman -S thunar
+</code></pre>
+<p>But to get more functionality from thunar we need to install some more packages too. For example, if we want to extract packages directly inside the file viewer then we need to install <a href="https://docs.xfce.org/xfce/thunar/archive"><strong>Thunar Archive Plugin</strong></a>. This plugin is only GUI for existing packages so we can support it with <a href="https://wiki.gnome.org/Apps/FileRoller"><strong>File Roller</strong></a>.  Download the thunar archive plugin and file-roller by typing;</p>
+<pre><code>$ pacman -S thunar-archive-plugin file-roller
+</code></pre>
+<p>As I said thunar is super customizable so we can add more plugins to extend its capability. One of them can be thumb icons of images and videos. Xfce has a plugin for this called <a href="https://gitlab.xfce.org/xfce/tumbler"><strong>tumbler</strong></a> we can download this plugin by typing;</p>
+<pre><code>$ pacman -S tumbler
+</code></pre>
+<p>And finally don’t forget to install the file system because if installed, Thunar will show the trash can, removable media, and remote filesystems. Install Gnome Virtual File System by typing</p>
+<pre><code>$ pacman -S gvfs
+</code></pre>
+<h3 id="i3-configuration">i3 Configuration</h3>
+<p>We need to configure the window manager to perfectly use the tools we installed. But first, let’s run i3 and see what we did so far. Start X by typing</p>
+<pre><code>$ startx /usr/bin/i3
+</code></pre>
+
+    </div>
+  </div>
+</body>
+
+</html>

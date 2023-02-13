@@ -17,8 +17,7 @@
 body {
   background: linear-gradient(-45deg, rgb(255, 231, 178) 0%, rgb(255, 209, 186) 33%, rgb(255, 221, 158) 66%, rgb(255, 172, 130) 100%);
   background-size: 400% 400%;
-  -webkit-animation: gradient 15s ease infinite;
-          animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
 }
 
 .cursor {
@@ -123,18 +122,6 @@ p {
 
 .social:hover {
   font-size: 2rem;
-}
-
-@-webkit-keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 @keyframes gradient {
