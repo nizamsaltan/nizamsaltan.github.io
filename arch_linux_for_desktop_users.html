@@ -40,18 +40,12 @@
 <li><a href="#base-system-requirements">4. Base System Requirements</a>
 <ul>
 <li><a href="#window-manager">Window Manager</a></li>
-<li><a href="#terminal-emulators">Terminal Emulators</a></li>
-<li><a href="#application-launcher">Application Launcher</a></li>
-<li><a href="#file-manager-functionality">File manager functionality</a></li>
-<li><a href="#file-viewer">File Viewer</a></li>
-<li><a href="#command-line-text-editors">Command Line Text Editors</a></li>
-<li><a href="#downloading-base-system-requiments">Downloading Base System Requiments</a>
-<ul>
-<li></li>
+<li><a href="#downloading-base-system-requiments">Downloading Base System Requiments</a></li>
 <li><a href="#starting-i3">Starting i3</a></li>
 </ul>
 </li>
-<li><a href="#todo-add-link-to-dock-section-and-next-chapter">TODO: add link to dock section and next chapter</a></li>
+<li><a href="#configuring-system">5. Configuring System</a>
+<ul>
 <li><a href="#configuring-i3">Configuring i3</a></li>
 <li><a href="#configuring-rofi">Configuring Rofi</a></li>
 <li><a href="#system-docksbars">System Docks/Bars</a></li>
@@ -210,9 +204,9 @@ My personal preferance: enable multilib</p>
 <p>i3 is a <a href="https://en.wikipedia.org/wiki/Tiling_window_manager">tiling window manager</a>, completely written from scratch. The target platforms are GNU/Linux and BSD operating systems, our code is Free and Open Source Software (FOSS) under the BSD license. i3 is primarily targeted at advanced users and developers.</p>
 </blockquote>
 <p>but before running X to runing <em>gui apps</em> let’s install some more tools.</p>
-<h2 id="terminal-emulators">Terminal Emulators</h2>
+<h3 id="terminal-emulators">Terminal Emulators</h3>
 <p>First, we need an terminal emulator to run run command in gui. We have so many options for chosing terminal emulator. <a href="https://en.wikipedia.org/wiki/List_of_terminal_emulators">Here</a> is list of all terminal emulators if you are nerd, if not here is some examples and screenshots of them.</p>
-<h3 id="konsole">Konsole</h3>
+<h4 id="konsole">Konsole</h4>
 <p>Konsole is KDE’s offical terminal emulator. Features</p>
 <ul>
 <li>Multiple tabs support</li>
@@ -225,20 +219,20 @@ My personal preferance: enable multilib</p>
 </ul>
 <p><a href="https://konsole.kde.org/">https://konsole.kde.org/</a><br>
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Konsole_21.12.0_screenshot.png" alt="Screenshot of Konsole in KDE Plasma "></p>
-<h3 id="alacritty">Alacritty</h3>
+<h4 id="alacritty">Alacritty</h4>
 <p>Alacritty is a modern terminal emulator that comes with sensible defaults, but allows for extensive configuration. By integrating with other applications, rather than reimplementing their functionality, it manages to provide a flexible set of features with high performance. The supported platforms currently consist of BSD, Linux, macOS and Windows.</p>
 <p><a href="https://alacritty.org/">https://alacritty.org/</a><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Alacritty-screenshot-with-vim.png/1280px-Alacritty-screenshot-with-vim.png" alt="Alacritty"></p>
-<h3 id="gnome-terminal">Gnome Terminal</h3>
+<h4 id="gnome-terminal">Gnome Terminal</h4>
 <p><strong>GNOME Terminal</strong> is a terminal emulator for the GNOME written by <a href="https://en.wikipedia.org/wiki/Havoc_Pennington" title="Havoc Pennington">Havoc Pennington</a> and others. Terminal emulators allow users to access a UNIX shell while remaining on their graphical desktop.</p>
 <p><a href="https://wiki.gnome.org/Apps/Terminal">https://wiki.gnome.org/Apps/Terminal</a><br>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/GNOME_Terminal_3.43_Adwaita-dark.png/1280px-GNOME_Terminal_3.43_Adwaita-dark.png" alt="GNOME Terminal 3.43 with the theme set to Adwaita-dark"></p>
-<h3 id="xfce4-terminal">Xfce4 Terminal</h3>
+<h4 id="xfce4-terminal">Xfce4 Terminal</h4>
 <p>Xfce Terminal is a lightweight and easy to use terminal emulator application with many advanced features including drop down, tabs, unlimited scrolling, full colors, fonts, transparent backgrounds, and more.</p>
 <p><a href="https://docs.xfce.org/apps/terminal/start">https://docs.xfce.org/apps/terminal/start</a><br>
 <img src="https://camo.githubusercontent.com/48f61a4be8fa223bbf6689cd82bce693a2a4bfbc/68747470733a2f2f7261772e6769746875622e636f6d2f696c6c6172696f6e4b2f6261736531362d78666365342d7465726d696e616c2f6d61737465722f6261736531362d78666365342d7465726d696e616c2e706e67" alt="enter image description here"></p>
-<h2 id="application-launcher">Application Launcher</h2>
+<h3 id="application-launcher">Application Launcher</h3>
 <p>Most popular application launchers are <em><a href="https://tools.suckless.org/dmenu/">DMenu</a></em> and <em><a href="https://github.com/davatorium/rofi">Rofi</a></em>. dmenu is a dynamic menu for X, originally designed for <a href="https://dwm.suckless.org/">dwm</a>. It manages large numbers of user-defined menu items efficiently. On the other hand Rofi, like dmenu, will provide the user with a textual list of options where one or more can be selected. This can either be running an application, selecting a window, or options provided by an external script.</p>
-<h2 id="file-manager-functionality">File manager functionality</h2>
+<h3 id="file-manager-functionality">File manager functionality</h3>
 <p>From <a href="http://wiki.archlinux.org">wiki.archlinux.org</a></p>
 <blockquote>
 <p><strong>Note:</strong> When installed, the software packages listed below will automatically be sourced by all installed - and capable - file managers, and within all desktop environments and/or window managers.</p>
@@ -253,34 +247,34 @@ My personal preferance: enable multilib</p>
 <li>Automatically mount removable media</li>
 </ul>
 <p>When a file manager has been installed as part of a full desktop environment, most of these packages will usually have been installed automatically. Consequently, where a file manager has been installed for a standalone window manager then - as is the case with the window manager itself - only a basic foundation will be provided. The user must then determine the nature and extent of the features and functionality to be added.</p>
-<h2 id="file-viewer">File Viewer</h2>
+<h3 id="file-viewer">File Viewer</h3>
 <p>After adding file manager functionality, we can chose right tool to view it. File viewer can be both command line based or gui based, so it will be advantage to have both of them. Some of the options for command line file viewers are <a href="https://github.com/gokcehan/lf"><strong>lf</strong></a> or <a href="https://ranger.github.io/"><strong>ranger</strong></a>. For gui, we have much of options. Examples can be <a href="https://en.wikipedia.org/wiki/Dolphin_%28file_manager%29"><strong>dolphin</strong></a> for kde, <a href="https://en.wikipedia.org/wiki/GNOME_Files"><strong>natuilus</strong></a> (or gnome files) for gnome and <a href="https://en.wikipedia.org/wiki/Thunar"><strong>thunar</strong></a> for xfce.</p>
-<h2 id="command-line-text-editors">Command Line Text Editors</h2>
+<h3 id="command-line-text-editors">Command Line Text Editors</h3>
 <p>In some distro’s there is have more than one command line text editor. And most popular one can be <em>vim</em> and <em>nano</em> Nano is relativly more beginner freindly because of listing some of the important shortcuts at bottom. On the other hand vim targets more advanced users. We can have multiple text editors in our system. Later of this book, we will configure these editors to get better experience. For example syntax highligting, line numbers etc.</p>
 <h2 id="downloading-base-system-requiments">Downloading Base System Requiments</h2>
 <p>Finaly we understand big part of how DE works and we can start installing packages now!</p>
-<h4 id="choosing-window-manager">Choosing Window Manager</h4>
+<h3 id="choosing-window-manager">Choosing Window Manager</h3>
 <p>My pick for Window Manager will be i3-gaps because of easy configuration, custumization and also being lightweight.<br>
 Download i3-gaps by typing:</p>
 <pre><code>$ pacman -S i3-gaps
 </code></pre>
-<h4 id="choosing-terminal-emulator">Choosing Terminal Emulator</h4>
+<h3 id="choosing-terminal-emulator">Choosing Terminal Emulator</h3>
 <p>I love xfce’s terminal emulator because it’s simple yet super custuziable. Download xfce4-terminal by</p>
 <pre><code>$ pacman -S xfce4-terminal
 </code></pre>
-<h4 id="downloading-web-browser">Downloading Web Browser</h4>
+<h3 id="downloading-web-browser">Downloading Web Browser</h3>
 <p>After downloading terminal emulator, we can start installing a web browser. Some popular options would be chrome but because of open source and already including in arch’s package manager I will use firefox for this. Download Firefox by typing;</p>
 <pre><code>$ pacman -S firefox
 </code></pre>
-<h4 id="downloaing-application-launcher">Downloaing Application Launcher</h4>
+<h3 id="downloading-application-launcher">Downloading Application Launcher</h3>
 <p>We need an application launcher to launch apps. Rofi is popular because of being super configurable and can be use in other panels to <em>(we will talk about them later on)</em> Download rofi by typing</p>
 <pre><code>$ pacman -S rofi
 </code></pre>
-<h4 id="downloading-command-line-text-editors">Downloading Command Line Text Editors</h4>
+<h3 id="downloading-command-line-text-editors">Downloading Command Line Text Editors</h3>
 <p>We can download nano and vim by typing;</p>
 <pre><code>$ pacman -S nano vim
 </code></pre>
-<h4 id="downloading-file-viewer">Downloading File Viewer</h4>
+<h3 id="downloading-file-viewer">Downloading File Viewer</h3>
 <p>My pick for file manager is again will be xfce’s file manager <strong>thunar</strong>. Download thunar by typing;</p>
 <pre><code>$ pacman -S thunar
 </code></pre>
@@ -293,7 +287,7 @@ Download i3-gaps by typing:</p>
 <p>And finaly don’t forget to install file system because if installed, Thunar will show the trash can, removable media, and remote filesystems. Install Gnome Virtual File System by typing</p>
 <pre><code>$ pacman -S gvfs
 </code></pre>
-<h4 id="reboot">Reboot</h4>
+<h3 id="reboot">Reboot</h3>
 <p>So, finally we install some cruical packages for our system. Now we can reboot to our newly installed system. To do this first we need to exit from <code>chroot</code> enviroment. Type;</p>
 <pre><code>$ exit
 </code></pre>
@@ -303,7 +297,7 @@ Download i3-gaps by typing:</p>
 <p>You should see something like this after rebooting your system,<br>
 <img src="https://raw.githubusercontent.com/nizamsaltan/arch-linux-for-desktop-users/main/images/boot_after_fresh_install.png" alt="Login Screen"><br>
 Enter your user name and password to login.</p>
-<h3 id="starting-i3">Starting i3</h3>
+<h2 id="starting-i3">Starting i3</h2>
 <p>We need configure window manager to perfectly use tools we installed. But first let’s run i3 and see what we did so far. Start X by typing</p>
 <pre><code>$ startx /usr/bin/i3
 </code></pre>
@@ -311,8 +305,8 @@ Enter your user name and password to login.</p>
 <p><img src="https://raw.githubusercontent.com/nizamsaltan/arch-linux-for-desktop-users/main/images/i3_start.png" alt="i3 First Start"></p>
 <p>You can see a message shows on our dock/bar <code>Error: status_command not found or is missing a library dependecy</code>. This is not an important issue for now and we will get those in dock section.</p>
 <p>In next chapter we will discuss configuring our system to make all packages work with each other.</p>
-<h2 id="todo-add-link-to-dock-section-and-next-chapter">TODO: add link to dock section and next chapter</h2>
-<p># 5. Configuring System</p>
+<h3 id="todo-add-link-to-dock-section-and-next-chapter">TODO: add link to dock section and next chapter</h3>
+<h1 id="configuring-system">5. Configuring System</h1>
 <h2 id="configuring-i3">Configuring i3</h2>
 <h3 id="shortcuts-for-i3">Shortcuts for i3</h3>
 <h3 id="launching-apps--running-commands-with-custom-shortcuts">Launching apps / running commands with custom shortcuts</h3>
