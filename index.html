@@ -1,79 +1,60 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
-    <link rel="stylesheet" href="css/home.css">
-    <title>Mehmet Nizam Saltan</title>
-</head>
-<body onmousedown="mouseDown()" onmouseup="mouseUp()">
-    <div class="cursor"></div>
-    <header>
-        <a href="mailto:nizamsaltan@protonmail.com"><h2 onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)">nizamsaltan@protonmail.com</h2></a>
-        <ul onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)" class="header">
-            <!-- <li><a href="https://sketchfab.com/nizamsaltan" >3D Work</a></li> -->
-            <li><a href="https://medium.com/@NizamSaltan" target="blank">Blog</a></li>
-            <li><a href="https://github.com/nizamsaltan">GitHub</a></li>
-        </ul>
-    </header>
-    <h1 onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)" >Author of <span><a href="./arch_linux_for_desktop_users">Arch Linux For Desktop Users</a></span><br> Passionate about 3D graphics.<br> Fan of minimalist art.</h1>
-    <ul class="social" onmouseover="onMouseOver(this)" onmouseout="onMouseOut(this)">
-        <li><a href="https://www.youtube.com/channel/UCyJN487C64xfTweWEl1-zZA" target="blank"><i class="fi fi-brands-youtube"></i></a></li>
-        <li><a href="https://www.instagram.com/nizam.3d/" target="blank"><i class="fi fi-brands-instagram"></i></a></li>
-        <li><a href="https://twitter.com/nizam3d" target="blank"><i class="fi fi-brands-twitter"></i></a></li>
-    </ul>
-    <script>
-        const cursor = document.querySelector('.cursor');
-
-        let minusAmount = -37.5;
-        let xAxis = 0;
-        let yAxis = 0;
-        let isMouseOver = false;
-        
-        const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
-
-        document.addEventListener('mousemove', e => {
-            if (!isMouseOver) {
-                yAxis = e.pageY;
-                xAxis = e.pageX;
-            }
-        })
-
-        function updateMousePos() {
-            var x = clamp((xAxis - minusAmount), 0, document.body.clientWidth);
-            var y = clamp((yAxis - minusAmount), 0, document.body.clientHeight);
-
-            cursor.setAttribute("style", "top: " + (y + minusAmount * 2) +
-                "px; left: " + (x + minusAmount * 2) + "px;");
-        }
-
-        function mouseDown() {
-            minusAmount = -100;
-            cursor.classList.add("cursor-mouse-down");
-        }
-
-        function mouseUp() {
-            minusAmount = -37.5;
-            cursor.classList.remove("cursor-mouse-down");
-        }
-        
-        function onMouseOver(x) {
-            isMouseOver = true;
-            
-            xAxis = x.offsetLeft;
-            yAxis = x.offsetTop;
-
-
-            cursor.classList.add("cursor-mouse-over");
-        }
-
-        function onMouseOut(x) {
-            isMouseOver = false;
-            cursor.classList.remove("cursor-mouse-over");
-        }
-
-        setInterval(updateMousePos, 10);
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mehmet Nizam Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <body>
+    <div class="nav-bar">
+      <div class="email">
+        <a href="mailto:nizamsaltan@protonmail.com"
+          >nizamsaltan@protonmail.com</a
+        >
+      </div>
+      <div class="nav-links">
+        <hr class="nav-link-separator" />
+        <a href="https://github.com/nizamsaltan/" target="_blank">GITHUB</a>
+        <hr class="nav-link-separator" />
+        <a href="https://medium.com/@NizamSaltan" target="_blank">BLOG</a>
+        <hr class="nav-link-separator" />
+        <a href="https://www.youtube.com/@nizamsaltan" target="_blank"
+          >YOUTUBE</a
+        >
+      </div>
+    </div>
+    <div class="hero-page">
+      <div class="content">
+        <div class="left-section">
+          <!-- <img src="cube-design.png" alt="Geometric Cube Design" /> -->
+          <div id="container"></div>
+          <script src="app.js"></script>
+        </div>
+        <div class="right-section">
+          <p class="greeting">hi there 👋</p>
+          <hr class="orange-line" />
+          <h1>
+            i am <span>mehmet nizam saltan</span>, a computer science student
+            based in berlin, deutschland
+          </h1>
+        </div>
+      </div>
+      <div class="hero-page-bottom">
+        <p>SCROLL, THERE IS MORE TO SEE!</p>
+        <div class="mouse-icon"></div>
+      </div>
+    </div>
+    <div class="about">
+      <p>Hey this is more content</p>
+      <p>Hey this is more content</p>
+      <p>Hey this is more content</p>
+      <p>Hey this is more content</p>
+    </div>
+  </body>
 </html>
